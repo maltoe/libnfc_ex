@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+wget https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.8.0/libnfc-1.8.0.tar.bz2
+tar jxf libnfc-1.8.0
+cd libnfc-1.8.0
+autoreconf -vis
+./configure --prefix=/usr --sysconfdir=/etc
+make
+sudo make install

@@ -1,0 +1,17 @@
+name: Pull Request QA
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    name: Test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: 26.2
+          elixir-version: 1.15.7
+      - run: sudo apt-get install build-essentials libusb-dev automake autoconf cppcheck wget
+      - run: ./script/bootstrap
+      - run: mix deps.get
+      - run: mix test
+      - run: mix lint

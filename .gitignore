@@ -1,0 +1,12 @@
+!.gitkeep
+
+/_build/
+/_plts/
+/deps/
+/doc/
+/.fetch
+/tmp/
+erl_crash.dump
+*.ez
+libnfc_ex-*.tar
+libnfc_nif.so
